@@ -33,23 +33,35 @@ const CheckOut = () => {
                 <div className='flex gap-10 justify-between'>
                     <div className='w-[470px] flex flex-col gap-8'>
                         <div>
-                            <label className='text-[#666]    ' htmlFor="">First Name*</label> <br />
-                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" name="" id="" />
+                            <label className='text-[#666]    ' >First Name*</label> <br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
                         </div>
                         <div>
-                            <label className='text-[#666]    ' htmlFor="">Street Address*</label> <br />
-                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" name="" id="" />
+                            <label className='text-[#666]    ' >Company Name</label> <br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
                         </div>
                         <div>
-                            <label className='text-[#666]    ' htmlFor="">Apartment, floor, etc. (optional)</label><br />
-                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" name="" id="" />
+                            <label className='text-[#666]    ' >Street Address*</label> <br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
                         </div>
                         <div>
-                            <label className='text-[#666]    ' htmlFor="">Phone Number*</label> <br />
-                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" name="" id="" />
+                            <label className='text-[#666]    ' >Apartment, floor, etc. (optional)</label><br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
+                        </div>
+                        <div>
+                            <label className='text-[#666]    ' >Town/City*</label><br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
+                        </div>
+                        <div>
+                            <label className='text-[#666]    ' >Phone Number*</label> <br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
+                        </div>
+                        <div>
+                            <label className='text-[#666]    ' >Email Address*</label> <br />
+                            <input className=' outline-none px-4 bg-[#F5F5F5] w-full h-[50px]   ' type="text" />
                         </div>
                         <div className='flex gap-2'>
-                            <input type="checkbox" name="" id="" />
+                            <input type="checkbox" />
                             <p>Save this information for faster check-out next time</p>
                         </div>
                     </div>
@@ -73,17 +85,17 @@ const CheckOut = () => {
                         </div>
                         <div className='flex gap-4 justify-between mb-8'>
                             <div className='flex gap-4'>
-                                <input type="radio" name="" id="" />
+                                <input type="radio" />
                                 <p>Bank</p>
                             </div>
                             <img src={frame} alt="" />
                         </div>
                         <div className='flex gap-4 mb-8'>
-                            <input type="radio" name="" id="" />
+                            <input type="radio" />
                             <p>Cash on delivery</p>
                         </div>
                         <div className='flex gap-4 items-start mb-8'>
-                            <input className='border w-[300px] rounded-md px-[24px] py-4 outline-none ' placeholder="Coupon Code" type="text" name="" id="" />
+                            <input className='border w-[300px] rounded-md px-[24px] py-4 outline-none ' placeholder="Coupon Code" type="text" />
                             <button className='px-12 py-4 border rounded-md  text-white bg-[#DB4444]      ' >Apply Coupon</button>
                         </div>
                         <button className='px-12 py-4 border rounded-md  text-white bg-[#DB4444]      ' >Place Order</button>

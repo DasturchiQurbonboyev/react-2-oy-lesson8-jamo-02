@@ -13,6 +13,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Single from './components/single/Single'
 import Cart from './components/cart/Cart'
 import CheckOut from "./components/checkOut/CheckOut.jsx"
+import LogIn from './components/logIn/LogIn.jsx'
+import SignUp from './components/signUp/SignUp.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +29,8 @@ function App() {
         <Route path='/single' element={<Single />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/checkOut' element={<CheckOut />} />
+        <Route path='/log-in' element={<LogIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
       </Routes>
       <Footer />
       <ToastContainer />

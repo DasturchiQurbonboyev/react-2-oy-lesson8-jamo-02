@@ -53,36 +53,38 @@ const Products = ({ data, str, month, all, hoverBtn, wishlistTitle }) => {
 
     return (
         <div className='kontainer'>
-            {wishlistTitle ?
-                <div className='flex items-center gap-2'>
-                    <div className='w-[20px] bg-red-500 h-10'>
+            <div className='pt-[60px]'>
+                {wishlistTitle ?
+                    <div className='flex items-center gap-2'>
+                        <div className='w-[20px] bg-red-500 h-10'>
 
-                    </div>
-                    <h1 className='text-red-500'>{month}</h1>
-                </div> : <></>}
-            <div className='flex justify-between items-center '>
-                <h2 className='text-[36px] font-[600]'>{str}</h2>
-                {
-                    !hoverBtn
-                        ?
-                        <button className='bg-red-500 px-[48px] py-[16px] rounded-md  text-white  '>View All</button>
-                        :
-                        <div className='flex gap-3'>
-                            <div className='w-[46px] h-[46px] bg-[#F5F5F5] flex justify-center items-center rounded-[50%]  '><FaArrowLeft /></div>
-                            <div className='w-[46px] h-[46px] bg-[#F5F5F5] flex justify-center items-center rounded-[50%]  '><FaArrowRight /></div>
                         </div>
-                }
+                        <h1 className='text-red-500'>{month}</h1>
+                    </div> : <></>}
+                <div className='flex justify-between items-center '>
+                    <h2 className='text-[36px] font-[600]'>{str}</h2>
+                    {
+                        !hoverBtn
+                            ?
+                            <button className='bg-red-500 px-[48px] py-[16px] rounded-md  text-white  '>View All</button>
+                            :
+                            <div className='flex gap-3'>
+                                <div className='w-[46px] h-[46px] bg-[#F5F5F5] flex justify-center items-center rounded-[50%]  '><FaArrowLeft /></div>
+                                <div className='w-[46px] h-[46px] bg-[#F5F5F5] flex justify-center items-center rounded-[50%]  '><FaArrowRight /></div>
+                            </div>
+                    }
 
+                </div>
+                <div className="wrapper flex justify-between flex-wrap py-[50px] gap-[10px]   ">
+                    {products}
+                </div>
+                {hoverBtn
+                    ?
+                    <div className='text-center'><button className='bg-red-500 px-[48px] py-[16px] rounded-md  text-white  '>View All Products </button></div>
+                    :
+                    <></>
+                }
             </div>
-            <div className="wrapper flex justify-between flex-wrap py-[50px] gap-[10px]   ">
-                {products}
-            </div>
-            {hoverBtn
-                ?
-                <div className='text-center'><button className='bg-red-500 px-[48px] py-[16px] rounded-md  text-white  '>View All Products </button></div>
-                :
-                <></>
-            }
         </div>
     )
 }

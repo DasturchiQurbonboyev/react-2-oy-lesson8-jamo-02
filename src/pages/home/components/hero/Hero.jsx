@@ -3,8 +3,8 @@ import hero from "../../../../assets/images/hero/hero.png"
 
 const Hero = () => {
     return (
-        <>
-            <div className='pb-6 kontainer flex justify-between  items-center gap-4 border-b-2    '>
+        <div className='kontainer'>
+            <div className='pb-6 pt-[60px]  flex justify-between  items-center gap-4 border-b-2    '>
                 <div className='w-[217px] border-r-2 mb-[40px] pt-[40px]   '>
                     <ul className='flex flex-col gap-[12px]'>
                         <li>Woman's Fashion</li>
@@ -22,7 +22,7 @@ const Hero = () => {
                     <img src={hero} alt="" />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
