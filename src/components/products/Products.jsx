@@ -35,7 +35,11 @@ const Products = ({ data, str, month, all, hoverBtn, wishlistTitle }) => {
                         <RiDeleteBin5Line onClick={() => toast.error("Wishlistdan o'chirildi")} className="size-6" />
                     </button>
                 </div>}
-            <img className='w-full h-[220px] object-cover   ' src={el.thumbnail} alt="" />
+            <div onClick={() => dispatch(toggleSingle(el))}>
+                <Link to={"/single"}>
+                    <img className='w-full h-[220px] object-cover   ' src={el.thumbnail} alt="" />
+                </Link>
+            </div>
             <div className={`text-center  `}>
                 <button onClick={() => {
                     dispatch(addToCart(el)),

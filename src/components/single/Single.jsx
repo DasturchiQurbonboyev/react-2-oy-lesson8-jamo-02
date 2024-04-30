@@ -5,10 +5,19 @@ import axios from '../../api/index'
 import { FaHeart } from 'react-icons/fa'
 import { toggleWishes } from '../../context/wishlistSlice'
 import { toast } from 'react-toastify'
+import { decCart, incCart } from '../../context/cartSlice'
 
 
 const Single = () => {
     const single = useSelector(state => state.single.value)[0]
+    const carts = useSelector(state => state.cart.value);
+    const count = carts.filter((el) => {
+        if (el.id == single.id) {
+            return el
+        }
+    })
+
+
     const wishes = useSelector(state => state.wishlist.value)
     const [data, setData] = useState([])
 
@@ -32,21 +41,21 @@ const Single = () => {
                     <div className="img flex gap-5">
                         <div className=' mb-8 flex flex-col justify-between gap-4'>
                             <div className='border p-[10px] rounded-[15px] cursor-pointer   '>
-                                <img className='w-[100px]' src={single.images[0]} alt="" />
+                                <img className='w-[100px]' src={single.thumbnail} alt="" />
                             </div>
                             <div className='border p-[10px] rounded-[15px] cursor-pointer   '>
-                                <img className='w-[100px]' src={single.images[0]} alt="" />
+                                <img className='w-[100px]' src={single.thumbnail} alt="" />
                             </div>
                             <div className='border p-[10px] rounded-[15px] cursor-pointer   '>
-                                <img className='w-[100px]' src={single.images[0]} alt="" />
+                                <img className='w-[100px]' src={single.thumbnail} alt="" />
                             </div>
                             <div className='border p-[10px] rounded-[15px] cursor-pointer   '>
-                                <img className='w-[100px]' src={single.images[0]} alt="" />
+                                <img className='w-[100px]' src={single.thumbnail} alt="" />
                             </div>
 
                         </div >
                         <div className="img-box h-full max-lg:mx-auto ">
-                            <img src={single.images[0]} alt="Yellow Tropical Printed Shirt image"
+                            <img src={single.thumbnail} alt="Yellow Tropical Printed Shirt image"
                                 className="max-lg:mx-auto lg:ml-auto h-full" />
                         </div>
                     </div>
@@ -114,7 +123,7 @@ const Single = () => {
                                 </div>
 
                             </div>
-                            <h6 className="font-manrope font-semibold text-2xl leading-9 text-gray-900 pr-5 sm:border-r border-gray-200 mr-5">$ {single.price}</h6>
+                            <h6 className="font-manrope font-semibold text-2xl leading-9 text-gray-900 pr-5 sm:border-r border-gray-200 mr-5">$ {single.price * count[0].quantity}</h6>
                             <p className="text-gray-500 text-base font-normal  mb-4">{single.description}</p>
                             <hr />
                             <div className='flex gap-3 items-center justify-start mt-5'>
@@ -135,11 +144,13 @@ const Single = () => {
 
                             <div className="flex gap-3 py-8">
                                 <div className="flex sm:items-center sm:justify-center w-full">
-                                    <button className="outline-none    group py-[15px] px-6 border border-gray-400 rounded-l-full bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-sm hover:shadow-gray-300">
+                                    <button disabled={count[0].quantity <= 1} onClick={() => dispatch(decCart(count[0]))} className="outline-none    group py-[15px] px-6 border border-gray-400 rounded-l-full bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-sm hover:shadow-gray-300">
                                         -
                                     </button>
-                                    <h2 className="font-semibold text-gray-900 cursor-pointer text-lg py-[13px] px-6 w-full sm:max-w-[118px] outline-0 border-y border-gray-400 bg-transparent placeholder:text-gray-900 text-center hover:bg-gray-50">1</h2>
-                                    <button className="outline-none  group py-[15px] px-6 border border-gray-400 rounded-r-full bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-sm hover:shadow-gray-300">
+                                    <h2 className="font-semibold text-gray-900 cursor-pointer text-lg py-[13px] px-6 w-full sm:max-w-[118px] outline-0 border-y border-gray-400 bg-transparent placeholder:text-gray-900 text-center hover:bg-gray-50">
+                                        {count[0].quantity}
+                                    </h2>
+                                    <button onClick={() => dispatch(incCart(count[0]))} className="outline-none  group py-[15px] px-6 border border-gray-400 rounded-r-full bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-sm hover:shadow-gray-300">
                                         +
                                     </button>
                                 </div>
@@ -155,10 +166,17 @@ const Single = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
             <Products data={data} str={""} month={"Related Item"} all={4} hoverBtn={false} wishlistTitle={true} />
-        </div>
+        </div >
     )
+
+
+
+
 }
 
 export default Single
+
+
+

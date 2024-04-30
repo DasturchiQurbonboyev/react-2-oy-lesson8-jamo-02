@@ -12,7 +12,7 @@ const Cart = () => {
         console.log(el);
         return acc + el.quantity * el.price
     }, 0)
-    // console.log(sum);
+
 
     useEffect(() => {
         scrollTo(0, 0)
